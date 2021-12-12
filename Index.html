@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Assessment</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        input[type=number],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            font-size: 18px;
+            height: 250px;
+        }
+
+        #separator{
+            height: 80px;
+        }
+
+        label {
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 5px;
+            text-align: center;
+            margin: 50px;
+        }
+
+        .col {
+            float: left;
+            width: 50%;
+            padding: 5px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .left {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Assignment 2</h2>
+        <div class="row">
+            <div class="col">
+                <form id="form1">
+                    <div class="left">
+                        <label for="myText">Enter Your Text</label>
+                        <textarea id="myText" cols="40" rows="30"></textarea>
+
+                        <label for="myText">Enter separator</label>
+                        <textarea id="separator" cols="40" rows="30"></textarea>
+
+                    </div>
+                    <div>
+                        <!-- <input type="submit" onclick="myFunction()" value="Run" /> -->
+                        <button class="btn" type="button" onclick="myFunction()">Run</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+                <form id="form2">
+                    <div class="left">
+                        <label for="result">Result </label>
+                        <textarea id="result" cols="40" rows="30"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function myFunction() {
+            var str = document.getElementById("myText").value;
+            var separator = document.getElementById("separator").value;
+            var sepPos = str.indexOf(separator);
+            if (sepPos == -1) {
+                document.getElementById("result").innerHTML = "";
+            }
+            document.getElementById("result").innerHTML =  str.substring(sepPos + separator.length);
+
+        }
+
+    </script>
+</body>
+
+</html>
